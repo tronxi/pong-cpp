@@ -99,10 +99,12 @@ void Game::processInput() {
 }
 
 void Game::update() {
-    float deltaTime = (SDL_GetTicks() - ticksCount) / 1000.0f;
-    ticksCount = SDL_GetTicks();
     while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticksCount + 16)) {
     }
+    
+    float deltaTime = (SDL_GetTicks() - ticksCount) / 1000.0f;
+    ticksCount = SDL_GetTicks();
+
 
     if (paddleDir != 0) {
         paddlePosition.y += paddleDir * 300.0f * deltaTime;
