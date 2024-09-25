@@ -101,7 +101,7 @@ void Game::processInput() {
 void Game::update() {
     while (!SDL_TICKS_PASSED(SDL_GetTicks(), ticksCount + 16)) {
     }
-    
+
     float deltaTime = (SDL_GetTicks() - ticksCount) / 1000.0f;
     ticksCount = SDL_GetTicks();
 
@@ -170,7 +170,7 @@ void Game::render() const {
     SDL_Surface *text = TTF_RenderText_Solid(font, std::to_string(fails).c_str(), white);
     SDL_Texture *textTexture = SDL_CreateTextureFromSurface(renderer, text);
 
-    const SDL_Rect textRect = {50, 50, 20, 20};
+    const SDL_Rect textRect = {50, 50, text->w, text->h};
     SDL_RenderCopy(renderer, textTexture, nullptr, &textRect);
 
 
